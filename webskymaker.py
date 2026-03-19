@@ -1,17 +1,7 @@
-import time
-import numpy as np
-from astropy.io import fits
 import argparse
 
-import healpy as hp
-from pixell import enmap, utils, reproject, curvedsky, enplot
-from maps import white_noise
-from pixell import wcsutils, powspec, fft as enfft
-from pixell.enmap import ndmap, fft, ifft
-from astropy import wcs
-
 # global Constants
-TCMB    = 2.726 #Kelvin
+TCMB    = 2.72 #Kelvin
 TCMB_uK = 2.726e6 #micro-Kelvin
 hplanck = 6.626068e-34 #MKS
 kboltz  = 1.3806503e-23 #MKS
@@ -165,6 +155,11 @@ def create_websky_map(path:str, freq:str, noise=None, fwhm=None):
 
 # running from command line
 if __name__ == "__main__":
+    import numpy as np
+    import healpy as hp
+    from pixell import enmap, utils
+    from maps import white_noise
+    from pixell.enmap import ndmap, fft, ifft
     parser = argparse.ArgumentParser()
     parser.add_argument("path", type=str)
     parser.add_argument("freq", type=str)
